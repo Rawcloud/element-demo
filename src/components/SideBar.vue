@@ -28,8 +28,8 @@ export default {
   data () {
     return {
       isCollapse: false,
-      classApse: 'app-side-collaped', // : 'app-side-expaned'
-      imgstyle: 'margin-left:80px;'
+      classApse: 'app-side-collaped'// : 'app-side-expaned'
+      // imgstyle: 'margin-left:80px;'
     }
   },
   name: 'SideBar',
@@ -39,6 +39,9 @@ export default {
     },
     routes: {
       type: Array
+    },
+    imgstyle: {
+      type: String
     }
   },
   computed: {
