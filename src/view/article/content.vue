@@ -32,10 +32,10 @@ export default {
   },
   methods: {
     getData () {
-      console.log('档前文章id：' + this.id)
+      // console.log('档前文章id：' + this.id)
       this.$api.get('topic/' + this.id, null, r => {
         this.dat = r.data
-        console.log('档前文章详情：' + JSON.parse(this.data))
+        // console.log('档前文章详情：' + JSON.parse(this.data))
       })
     }
   }

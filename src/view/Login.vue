@@ -73,8 +73,15 @@ export default {
   },
   methods: {
     handleSubmit (event) {
+      const loading = this.$loading({
+        lock: true,
+        text: 'Loading',
+        spinner: 'el-icon-loading',
+        background: 'rgba(0, 0, 0, 0.7)'
+      })
       this.$refs.ruleForm2.validate((valid) => {
         if (valid) {
+          loading.close()
           this.loginig = true
           if (this.ruleForm2.username === 'admin' && this.ruleForm2.password === '123456') {
             this.loging = false
@@ -93,6 +100,7 @@ export default {
             })
           }
         } else {
+          loading.close()
           console.log('登陆失败！')
           return false
         }
