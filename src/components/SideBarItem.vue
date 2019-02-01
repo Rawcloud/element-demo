@@ -4,9 +4,11 @@
       :index="genPath(fatherpath, subroute.path)">
     <!-- 创建分组菜单 -->
     <template slot="title">
+      <!-- 图标 -->
         <i :class="subroute.icon"></i>
         <span slot="title">{{subroute.name}}</span>
     </template>
+    <!-- 递归调用自身，直到subroute不含子节点 -->
     <SideBarItem v-for="(submenu, subidx) in subroute.children"
       :key="barIdx + '-' + subidx"
       :subroute="submenu"
@@ -45,11 +47,13 @@ export default {
     }
   },
   computed: {
+    // 默认激活的路由，用来激活菜单选中状态
     defaultActive: function () {
       return this.$route.path
     }
   },
   methods: {
+    // 生成侧边栏路由，格式：/a/b/c
     genPath: function () {
       let arr = [...arguments]
       let path = arr.map(v => {
