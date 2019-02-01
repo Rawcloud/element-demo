@@ -4,7 +4,7 @@
       :index="genPath(fatherpath, subroute.path)">
     <!-- 创建分组菜单 -->
     <template slot="title">
-        <i class="subroute.icon"></i>
+        <i :class="subroute.icon"></i>
         <span slot="title">{{subroute.name}}</span>
     </template>
     <SideBarItem v-for="(submenu, subidx) in subroute.children"
@@ -16,12 +16,18 @@
   <el-menu-item v-else-if="!subroute.hidden"
     style="font-weight:400;"
     :index="genPath(fatherpath, subroute.path)">
-      {{subroute.name}}
+      <template slot="title">
+        <i :class="subroute.icon"></i>
+        <span slot="title">{{subroute.name}}</span>
+    </template>
     </el-menu-item>
     <el-menu-item v-else
       style="font-weight:400;"
       :index="genPath(fatherpath, subroute.path)">
-        {{subroute.name}}
+        <template slot="title">
+        <i :class="subroute.icon"></i>
+        <span slot="title">{{subroute.name}}</span>
+    </template>
       </el-menu-item>
 </template>
 <script>
