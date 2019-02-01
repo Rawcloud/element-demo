@@ -9,7 +9,7 @@
               <!-- <router-link :to="'/content/'+i.id">
                 {{i.title}}
               </router-link> -->
-              <a @click="showDetails(i.id)" style="text-decoration:underline;; color :blue;" title="点击显示详情">{{i.title}}</a>
+              <a @click="showDetails(i.id)" style="text-decoration:underline;color:blue;" title="点击显示详情">{{i.title}}</a>
             </li>
           </ul>
           <Content v-if="!ifshow" :id="articleId"></Content>
