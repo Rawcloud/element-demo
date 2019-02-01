@@ -34,7 +34,8 @@ export default new Router({
               children: [
                 { path: 'dashboard21', name: '首页21', component: Dashboard },
                 { path: 'dashboard22', name: '首页22', component: Dashboard }
-              ] }
+              ]
+            }
           ]
         },
         {
