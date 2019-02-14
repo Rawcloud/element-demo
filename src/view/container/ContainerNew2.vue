@@ -20,6 +20,14 @@
                    <el-menu-item index="routePath">{{title}}</el-menu-item>
                 </el-menu>
                 <div class="app-header-userinfo">
+                  <!-- 换肤 -->
+                  <div>
+                    <el-radio-group v-model="themecolor">
+                      <el-radio label="a25fbc">默认-a25fbc</el-radio>
+                      <el-radio label="02abfd">默认-02abfd</el-radio>
+                      <el-radio label="1b1e24">默认-1b1e24</el-radio>
+                    </el-radio-group>
+                  </div>
                   <!-- 全屏显示 -->
                   <div class="btn-fullscreen" @click="handleFullScreen">
                       <el-tooltip effect="dark" :content="fullscreen?`取消全屏`:`全屏`" placement="bottom">
@@ -64,7 +72,8 @@ export default {
       defaultActive: '1',
       routePath: '/',
       title: '首页',
-      fullscreen: false
+      fullscreen: false,
+      classH2: 'custom-a25fbc'
     }
   },
   methods: {
@@ -121,9 +130,29 @@ export default {
     }
   },
   mounted: function () {
+    this.$utils.toggleClass(document.body, 'custom-' + this.themecolor)
+    let curcolor = this.$store.state.themecolor
+    this.classH2 = 'custom=' + curcolor
     let user = sessionStorage.getItem('user')
     if (user) {
       this.username = user
+    }
+  },
+  computed: {
+    themecolor: {
+      get () {
+        return this.$store.state.themecolor
+      },
+      set (val) {
+        this.$store.commit('setThemeColor', val)
+      }
+    }
+  },
+  watch: {
+    themecolor: {
+      handler () {
+        this.$utils.toggleClass(document.body, 'custom-' + this.themecolor)
+      }
     }
   }
 }

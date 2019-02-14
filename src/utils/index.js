@@ -32,5 +32,11 @@ export default {
       result = '刚刚'
     }
     return result
+  },
+  toggleClass (element, className) {
+    if (!element || !className) {
+      return
+    }
+    element.className = className
   }
 }

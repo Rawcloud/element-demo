@@ -4,11 +4,13 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import Element from 'element-ui'
-import 'element-ui/lib/theme-chalk/index.css'
+// import 'element-ui/lib/theme-chalk/index.css'
 import './style/index.scss'
+import '../theme/index.css'
 // 引用API文件
 import api from './api/index.js'
 import utils from './utils/index.js'
+import store from './store/index.js'
 // 将API方法绑定到全局
 Vue.prototype.$api = api
 Vue.prototype.$utils = utils
@@ -33,6 +35,7 @@ router.beforeEach((to, from, next) => {
 new Vue({
   el: '#app',
   router,
+  store,
   components: { App },
   template: '<App/>'
 })
