@@ -13,3 +13,4 @@ yarn-error.log*
 *.njsproj
 *.sln
 package-lock.json
+element-demo-win32-x64/

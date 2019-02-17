@@ -4,11 +4,14 @@
   "description": "element learn login demo",
   "author": "rawcloud",
   "private": true,
+  "main": ".electron.js",
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
     "start": "npm run dev",
     "lint": "eslint --ext .js,.vue src",
-    "build": "node build/build.js"
+    "build": "node build/build.js",
+    "electron_dev": "npm run build && electron .",
+    "electron_build": "electron-packager ./ --platform=win32 --arch=x64 --overwrite"
   },
   "dependencies": {
     "element-ui": "^2.5.2",
@@ -36,6 +39,8 @@
     "chalk": "^2.0.1",
     "copy-webpack-plugin": "^4.0.1",
     "css-loader": "^0.28.0",
+    "electron": "^4.0.5",
+    "electron-packager": "^13.0.1",
     "element-theme-chalk": "^2.5.4",
     "eslint": "^4.15.0",
     "eslint-config-standard": "^10.2.1",
