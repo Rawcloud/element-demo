@@ -11,7 +11,7 @@
     "lint": "eslint --ext .js,.vue src",
     "build": "node build/build.js",
     "electron_dev": "npm run build && electron .",
-    "electron_build": "electron-packager ./ --platform=win32 --arch=x64 --overwrite"
+    "electron_build": "electron-packager ./ --platform=win32 --arch=x64 --icon=./favicon.ico --overwrite"
   },
   "dependencies": {
     "element-ui": "^2.5.2",
