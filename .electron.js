@@ -17,7 +17,8 @@ function createWindow () {
 
   // and load the index.html of the app.
   mainWindow.loadFile('./dist/index.html')
-
+  // 监听 npm run dev 启动之后的地址
+  mainWindow.loadURL('http://localhost:8080/' + '#')
   // Open the DevTools.
   // mainWindow.webContents.openDevTools()
 
